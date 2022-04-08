@@ -45,6 +45,12 @@ pca = PCA()
 embedding_pca = pca.fit_transform(X)
 
 plt.figure(dpi = 300)
+sns.scatterplot(x = embedding_pca[:, 0], y = embedding_pca[:, 1], palette = 'Set2', hue = y2)
+plt.xlabel('PC1 ({} %)'.format(round(pca.explained_variance_ratio_[0] * 100, 2)))
+plt.ylabel('PC2 ({} %)'.format(round(pca.explained_variance_ratio_[1] * 100, 2)))
+
+
+plt.figure(dpi = 300)
 sns.scatterplot(x = embedding_pca[:, 0], y = embedding_pca[:, 1], palette = 'Set2', hue = y1)
 plt.xlabel('PC1 ({} %)'.format(round(pca.explained_variance_ratio_[0] * 100, 2)))
 plt.ylabel('PC2 ({} %)'.format(round(pca.explained_variance_ratio_[1] * 100, 2)))
